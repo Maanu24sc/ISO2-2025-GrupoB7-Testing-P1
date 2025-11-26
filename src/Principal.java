@@ -18,6 +18,11 @@ public class Principal {
                 throw new ExcepcionCaracter("No se admiten caracteres.");
             }
 
+                if (fecha < 0) {
+                    throw new ExcepcionNegativo("No se admiten valores negativos.");
+                }
+
+
             ComprobarBisiesto comprobar = new ComprobarBisiesto(fecha);
 
             if (comprobar.esBisiesto()) {
