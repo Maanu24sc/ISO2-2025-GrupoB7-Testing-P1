@@ -1,5 +1,3 @@
-
-
 public class ExcepcionNegativo extends Exception{
     private final String codigoError;
 
