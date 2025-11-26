@@ -1,5 +1,5 @@
 
-public class ExcepcionNegativo extends Exception {
+public class ExcepcionNegativo extends Exception{
     private final String codigoError;
 
     public ExcepcionNegativo(String mensaje) {
