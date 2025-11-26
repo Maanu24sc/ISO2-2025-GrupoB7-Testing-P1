@@ -2,11 +2,18 @@ public class ComprobarBisiesto {
     private int fecha;
 
     public ComprobarBisiesto(int fecha) throws ExcepcionNegativo {
-        this.setFecha(fecha);
+        setFecha(fecha);
     }
 
     public boolean esBisiesto() {
-        return this.fecha % 4 == 0;
+        int year = this.fecha;
+
+        // regla correcta del calendario gregoriano
+        if (year % 400 == 0) 
+            return true;
+        if (year % 100 == 0) 
+            return false;
+        return year % 4 == 0;
     }
 
     public void setFecha(int fecha) throws ExcepcionNegativo {
