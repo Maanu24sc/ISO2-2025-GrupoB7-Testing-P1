@@ -1,4 +1,4 @@
-
+package problema1;
 public class Fecha {
     private int dia;
     private int mes;

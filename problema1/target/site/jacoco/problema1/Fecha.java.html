@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fecha.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">problema1</a> &gt; <a href="index.source.html" class="el_package">problema1</a> &gt; <span class="el_source">Fecha.java</span></div><h1>Fecha.java</h1><pre class="source lang-java linenums">package problema1;
+public class Fecha {
+    private int dia;
+    private int mes;
+    private int anio;
+
+    /**
+     * Constructor que valida y establece la fecha.
+     * Lanza excepción si el año es negativo o si el mes o el día son inválidos.
+     */
+<span class="nc" id="L11">    public Fecha(int dia, int mes, int anio) throws DatosNoValidosException {</span>
+<span class="nc bnc" id="L12" title="All 4 branches missed.">        if (mes &lt; 1 || mes &gt; 12) {</span>
+<span class="nc" id="L13">            throw new DatosNoValidosException(&quot;El mes debe estar entre 1 y 12.&quot;);</span>
+        }
+<span class="nc bnc" id="L15" title="All 4 branches missed.">        if (dia &lt; 1 || dia &gt; 31) {</span>
+<span class="nc" id="L16">            throw new DatosNoValidosException(&quot;El día debe estar entre 1 y 31.&quot;);</span>
+        }
+
+        // Validación crítica: año no negativo
+<span class="nc" id="L20">        setAnio(anio);  // Llama a setAnio para validarlo</span>
+<span class="nc" id="L21">        this.dia = dia;</span>
+<span class="nc" id="L22">        this.mes = mes;</span>
+<span class="nc" id="L23">    }</span>
+
+    public void setAnio(int anio) throws DatosNoValidosException {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (anio &lt; 0) {</span>
+<span class="nc" id="L27">            throw new DatosNoValidosException(&quot;El año no puede ser negativo.&quot;);</span>
+        }
+<span class="nc" id="L29">        this.anio = anio;</span>
+<span class="nc" id="L30">    }</span>
+
+    public int getAnio() {
+<span class="nc" id="L33">        return anio;</span>
+    }
+
+    /**
+     * Lógica principal del problema.
+     * Devuelve true si el año es bisiesto, false si no lo es.
+     * Regla: Divisible entre 4, NO divisible entre 100, SALVO que sea divisible entre 400.
+     */
+    public boolean esBisiesto() {
+<span class="nc bnc" id="L42" title="All 6 branches missed.">        return (anio % 4 == 0 &amp;&amp; anio % 100 != 0) || (anio % 400 == 0);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L47">        return String.format(&quot;%02d/%02d/%d&quot;, dia, mes, anio);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

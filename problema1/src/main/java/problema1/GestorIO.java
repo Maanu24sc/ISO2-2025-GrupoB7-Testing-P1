@@ -1,3 +1,4 @@
+package problema1;
 import java.util.InputMismatchException;  // Importa la clase Scanner
 import java.util.Scanner;  // Importa la clase InputMismatchException
 

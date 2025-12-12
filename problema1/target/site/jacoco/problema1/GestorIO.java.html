@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestorIO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">problema1</a> &gt; <a href="index.source.html" class="el_package">problema1</a> &gt; <span class="el_source">GestorIO.java</span></div><h1>GestorIO.java</h1><pre class="source lang-java linenums">package problema1;
+import java.util.InputMismatchException;  // Importa la clase Scanner
+import java.util.Scanner;  // Importa la clase InputMismatchException
+
+
+public class GestorIO {
+    private Scanner scanner;
+
+<span class="nc" id="L9">    public GestorIO() {</span>
+<span class="nc" id="L10">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L11">    }</span>
+
+    public void escribirCadena(String mensaje) {
+<span class="nc" id="L14">        System.out.println(mensaje);</span>
+<span class="nc" id="L15">    }</span>
+
+    public void escribirResultado(String mensaje) {
+<span class="nc" id="L18">        System.out.println(&quot;&gt;&gt;&gt; &quot; + mensaje);</span>
+<span class="nc" id="L19">    }</span>
+
+    public void escribirError(String mensaje) {
+<span class="nc" id="L22">        System.err.println(&quot;ERROR: &quot; + mensaje);</span>
+<span class="nc" id="L23">    }</span>
+
+    public int leerEntero(String mensaje) throws DatosNoValidosException {
+<span class="nc" id="L26">        System.out.print(mensaje + &quot;: &quot;);</span>
+        try {
+<span class="nc" id="L28">            return scanner.nextInt();</span>
+<span class="nc" id="L29">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L30">            scanner.next(); // Limpiar el buffer del scanner</span>
+<span class="nc" id="L31">            throw new DatosNoValidosException(&quot;El valor introducido no es un número entero válido.&quot;);</span>
+        }
+    }
+
+    public Fecha leerFecha() throws DatosNoValidosException {
+<span class="nc" id="L36">        escribirCadena(&quot;\n--- Introduzca los datos de la fecha ---&quot;);</span>
+<span class="nc" id="L37">        int dia = leerEntero(&quot;Día&quot;);</span>
+<span class="nc" id="L38">        int mes = leerEntero(&quot;Mes&quot;);</span>
+<span class="nc" id="L39">        int anio = leerEntero(&quot;Año&quot;);</span>
+<span class="nc" id="L40">        return new Fecha(dia, mes, anio);</span>
+    }
+
+    public boolean leerConfirmacion(String mensaje) {
+<span class="nc" id="L44">        System.out.print(mensaje + &quot; (s/n): &quot;);</span>
+<span class="nc" id="L45">        String res = scanner.next();</span>
+<span class="nc" id="L46">        return res.equalsIgnoreCase(&quot;s&quot;);</span>
+    }
+
+    public void cerrar() {
+<span class="nc" id="L50">        scanner.close();</span>
+<span class="nc" id="L51">    }</span>
+
+    // No cerramos el scanner aquí, lo dejamos para el Main.
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

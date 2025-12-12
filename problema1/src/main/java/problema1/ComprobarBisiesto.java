@@ -1,6 +1,20 @@
+package problema1;
+
 public class ComprobarBisiesto {
     private int fecha;
 
+    /**
+     * Constructor vacío necesario para los tests que instancian el objeto
+     * y luego establecen la fecha con setFecha().
+     */
+    public ComprobarBisiesto() {
+        // Inicializa a 0 o un valor neutro si es necesario
+        this.fecha = 0; 
+    }
+
+    /**
+     * Constructor con parámetro para inicialización directa.
+     */
     public ComprobarBisiesto(int fecha) throws DatosNoValidosException {
         setFecha(fecha);
     }
