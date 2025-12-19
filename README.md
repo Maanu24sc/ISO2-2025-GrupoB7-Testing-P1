@@ -4,8 +4,8 @@
 
 ## 👥 Integrantes
 
-- **Hugo Arévalo Llamosas**
-- **Manuel Sánchez Cabrerizo**
+- **Mario Burdallo Camargo**
+- **Alonso De Miguel Herencia**
 
 ---
 
